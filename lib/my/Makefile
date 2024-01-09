@@ -1,4 +1,5 @@
-SRC			=			player.cpp\
+SRC			=			player.cpp	\
+						my_atoi.cpp	\
 
 OBJS		=			$(SRC:.cpp=.o)
 
