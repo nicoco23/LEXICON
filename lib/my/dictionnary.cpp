@@ -6,7 +6,7 @@ using namespace std;
 #include <fstream>
 #include <iomanip> // Include the <iomanip> header for setw
 
-unsigned int count(char *file)
+unsigned int count(const char *file)
 {
     ifstream in(file);
     if (!in)
@@ -20,19 +20,17 @@ unsigned int count(char *file)
     while (in >> setw(NB_CHAR_MAX) >> word)
         size++;
     in.close();
-    cout << "size = " << size << endl;
     return size;
 }
 
 void initialize_dictionary(Dictionary &dico)
 {
-    char *file = "./dico.txt";
+    const char *file = "./dico.txt";
     dico.lenght = count(file);
     dico.words = new Item[dico.lenght];
 
     for (unsigned int i = 0; i < dico.lenght; i++)
         dico.words[i] = new char[NB_CHAR_MAX];
-    cout << "Fin de init" << endl;
 }
 
 void delete_dictionary(Dictionary &dico)
@@ -45,8 +43,7 @@ void delete_dictionary(Dictionary &dico)
 
 void write(Dictionary &dico)
 {
-    const char *file = "../../src/ods4.txt";
-    ifstream in(file);
+    ifstream in("./dico.txt");
     char word[NB_CHAR_MAX];
 
     int i = 0;
@@ -64,20 +61,19 @@ void write(Dictionary &dico)
     cout << "last word = " << dico.words[dico.lenght - 1] << endl;
 }
 
-bool dichotomy(Dictionary &dico, Item *elem)
+bool dichotomy(Dictionary &dico, Item elem)
 {
-    int start = 0, end = dico.lenght, middle = (start + end) / 2;
+    unsigned int start = 0, end = dico.lenght, middle = (start + end) / 2;
 
-    while (start <= end)
-    {
-        if (my_strcmp(dico.words[middle], *elem) == 0)
+    while (start < end) {
+        if (my_strcmp(dico.words[middle], elem) == 0)
             return true;
-        else if (my_strcmp(dico.words[middle], *elem) < 0)
-            start = middle + 1;
-        else
+        else if (my_strcmp(dico.words[middle], elem) > 0)
             end = middle - 1;
+        else
+            start = middle + 1;
         middle = (start + end) / 2;
     }
-
+    return false;
     
 }

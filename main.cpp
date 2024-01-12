@@ -8,10 +8,11 @@ int main(int ac, char *av[])
     Dictionary dico;
     initialize_dictionary(dico);
     write(dico);
-    char *word = "AA";
+    char word[NB_CHAR_MAX];
 
-    if (dichotomy(dico, &word))
-        cout << "true" << endl;
+    my_strcpy(word, "ARBRE");
+    if (dichotomy(dico, word))
+        cout << "le mot est present" << endl;
     else
-        cout << "false" << endl;
+        cout << "le mot n'est pas present" << endl;
 }

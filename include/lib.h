@@ -14,7 +14,7 @@ unsigned int count(const char *file);
 void initialize_dictionary(Dictionary &dico);
 void delete_dictionary(Dictionary &dico);
 void write(Dictionary &dico);
-bool dichotomy(Dictionary &dico, Item *elem);
-unsigned int count(char *file);
+bool dichotomy(Dictionary &dico, Item elem);
+unsigned int count(const char *file);
 
 #endif  // FUNCTIONS_H
