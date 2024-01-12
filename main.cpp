@@ -74,7 +74,7 @@ int main(int ac, char *av[])
     int nb_cards = 0;
     for (int i = 0; i < game_deck.current_nb_cards + 1; i++) {
         Card &actual_card = game_deck.cards[i];
-        cout << " carte actuelle : "<< actual_card.Name;
+        cout << actual_card.Name;
         ++nb_cards;
     }
     cout << endl;
