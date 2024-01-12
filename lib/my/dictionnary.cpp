@@ -6,9 +6,14 @@ using namespace std;
 #include <fstream>
 #include <iomanip> // Include the <iomanip> header for setw
 
-unsigned int count(const char *file)
+unsigned int count(char *file)
 {
     ifstream in(file);
+    if (!in)
+    {
+        cerr << "Impossible d'ouvrir le fichier " << file << endl;
+        exit(EXIT_FAILURE);
+    }
     unsigned int size = 0;
     char word[NB_CHAR_MAX];
 
@@ -21,7 +26,7 @@ unsigned int count(const char *file)
 
 void initialize_dictionary(Dictionary &dico)
 {
-    const char *file = "../../src/ods4.txt";
+    char *file = "./dico.txt";
     dico.lenght = count(file);
     dico.words = new Item[dico.lenght];
 
@@ -56,7 +61,7 @@ void write(Dictionary &dico)
 
     cout << "dico.lenght = " << dico.lenght << endl;
     cout << "first word = " << dico.words[0] << endl;
-    cout << "last word = " << dico.words[1] << endl;
+    cout << "last word = " << dico.words[dico.lenght - 1] << endl;
 }
 
 bool dichotomy(Dictionary &dico, Item *elem)
