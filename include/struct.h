@@ -3,6 +3,9 @@
 
 enum { NB_CARDS = 51, NB_LETTERS = 26, NB_INIT_CARD = 10 };
 enum { NB_MAX_SCORE = 100, NB_MIN_PLAYER = 2, NB_MAX_PLAYER = 4 };
+enum { NB_CHAR_MAX = 16};
+
+typedef char *Item;
 
 typedef struct Card
 {
@@ -14,8 +17,8 @@ typedef struct Card
 typedef struct Deck
 {
     Card *cards;
-    int nb_cards_max;
-    int current_nb_cards;
+    unsigned int nb_cards_max;
+    unsigned int current_nb_cards;
 }Deck;
 
 typedef struct Word
@@ -33,7 +36,11 @@ typedef struct Player
     Deck *hand;
 }Player;
 
-
+typedef struct Dictionary
+{
+    unsigned int lenght;
+    Item *words;
+}Dictionary;
 
 typedef struct  Maillon
 {

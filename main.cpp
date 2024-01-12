@@ -5,11 +5,13 @@ using namespace std;
 
 int main(int ac, char *av[])
 {
-    int count_player = 0;
-    count_player = atoi(av[1]);
+    Dictionary dico;
+    initialize_dictionary(dico);
+    write(dico);
+    char *word = "AA";
 
-    Player *player = new Player;
-    initialize_player(player, count_player);
-
-    return (0);
+    if (dichotomy(dico, &word))
+        cout << "true" << endl;
+    else
+        cout << "false" << endl;
 }
