@@ -4,6 +4,8 @@ SRC			=			player.cpp	\
 						my_atoi.cpp	\
 						card.cpp	\
 						dictionnary.cpp	\
+						initialisation.cpp	\
+						word.cpp	\
 
 OBJS		=			$(SRC:.cpp=.o)
 

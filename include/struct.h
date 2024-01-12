@@ -27,20 +27,32 @@ typedef struct Word
     unsigned int lenght;
 }Word;
 
-typedef struct Player
+typedef struct word_table
 {
-    unsigned int ID;
-    unsigned int score;
-    unsigned int nb_cards;
-    bool is_playing;
-    Deck *hand;
-}Player;
+    Word *game;
+    unsigned int nb_word;
+} word_table;
 
 typedef struct Dictionary
 {
     unsigned int lenght;
     Item *words;
 }Dictionary;
+
+typedef struct Player
+{
+    unsigned int ID;
+    unsigned int score;
+    unsigned int nb_cards;
+    bool is_playing;
+    Deck hand;
+}Player;
+
+typedef struct Player_table
+{
+    unsigned int nb_player;
+    Player *registered;
+}Player_table;
 
 typedef struct  Maillon
 {
