@@ -49,7 +49,10 @@ int main(int ac, char *av[])
         return 84;
     }
     int nb_player = atoi(av[1]);
-
+    if (nb_player < 2 || nb_player > 4) {
+        cout << "Nombre de joueurs incorrect" << endl;
+        return 84;
+    }
 
     init_table(table, nb_player);
 
