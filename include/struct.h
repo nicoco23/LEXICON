@@ -1,16 +1,6 @@
 #ifndef STRUCT_H
 #define STRUCT_H
 
-
-
-typedef struct Player
-{
-    int ID;
-    int score;
-    bool is_playing;
-    Deck *deck;
-}Player;
-
 typedef struct Card
 {
     int Value;
@@ -24,6 +14,16 @@ typedef struct Deck
     int nb_cards_max;
     int current_nb_cards;
 }Deck;
+
+typedef struct Player
+{
+    int ID;
+    int score;
+    bool is_playing;
+    Deck *deck;
+}Player;
+
+
 
 typedef struct  Maillon
 {
@@ -39,3 +39,23 @@ typedef struct Chaine
 
 
 #endif /*STRUCT_H*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

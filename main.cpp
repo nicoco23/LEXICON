@@ -1,20 +1,15 @@
 #include "include/lib.h"
+#include "include/struct.h"
 #include <iostream>
 using namespace std;
 
 int main(int ac, char *av[])
 {
-    int a = 5;
-    int b = 10;
+    int count_player = 0;
+    count_player = atoi(av[1]);
 
-    my_swap(a, b);
+    Player *player = new Player;
+    initialize_player(player, count_player);
 
-    cout << a << endl;
-
-    char *str = "Coucou";
-    char *str2 = "42";
-
-    my_swap(str, str2);
-
-    cout << str << endl;
+    return (0);
 }

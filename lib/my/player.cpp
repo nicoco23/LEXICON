@@ -1,9 +1,18 @@
 #include "../../include/lib.h"
+#include "../../include/struct.h"
+using namespace std;
 
-int nb_player(int ac, char *av[])
+void initialize_player(Player *player, int nb_player)
 {
-
-    if (ac != 1)
-        return (84);
-    int nb_player = my_atoi(av[1]);
+    int i = 0;
+    int player_count = 1;
+    while (i < nb_player) {
+        player->ID = player_count;
+        player->score = 0;
+        player->is_playing = false;
+        player->deck = NULL;
+        player_count++;
+        i++;
+        cout << "Player " << player->ID << " created" << endl;
+    }
 }
