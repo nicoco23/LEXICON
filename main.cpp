@@ -43,6 +43,11 @@ int main(int ac, char *av[])
 		{'Y', 4, 1},
 		{'Z', 2, 1}
     };
+
+    //debug jeu de cartes
+    for (int i = 0; i < NB_LETTERS; i++) {
+        cout << "Lettre : " << game[i].Name << " " << game[i].Value << " " << game[i].quantity << endl;
+    }
     Player_table table;
     if (ac != 2) {
         cout << "Nombre de joueurs incorrect" << endl;
@@ -58,24 +63,25 @@ int main(int ac, char *av[])
 
     cout << "Deck init" << endl;
     Deck game_deck;
+    cout << "Deck created" << endl;
     init_deck(game_deck, NB_CARDS);
-    for (int i = 0; i < NB_CARDS; i++) {
+    cout << "Deck init sucess" << endl;
+    for (int i = 0; i < NB_LETTERS; i++) {
         for (int j = 0; j < game[i].quantity; j++)
             stack(game_deck, game[i]);
     }
     cout << "Deck" << endl;
     int nb_cards = 0;
-    for (int i = 0; i < game_deck.current_nb_cards; i++) {
+    for (int i = 0; i < game_deck.current_nb_cards; ++i) {
         Card &actual_card = game_deck.cards[i];
-        cout << actual_card.Name;
-        nb_cards++;
+        cout << " carte actuelle : "<< actual_card.Name;
+        ++nb_cards;
     }
     cout << endl;
-    if (nb_cards == NB_CARDS)
-        cout << "Deck OK" << endl;
+    if (nb_cards != NB_CARDS)
+        cout << "Erreur dans le nombre de cartes" << endl;
     else
-        cout << "Deck KO" << endl;
-
+        cout << "Nombre de cartes correct" << endl;
     mix(game_deck);
     for (int i = 0; i < game_deck.current_nb_cards; i++) {
         Card &actual_card = game_deck.cards[i];

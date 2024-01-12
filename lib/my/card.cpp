@@ -8,7 +8,7 @@ void init_deck(Deck &d, unsigned int c)
     assert(c > 0);
     d.nb_cards_max = c;
     d.cards = new Card[c];
-    d.current_nb_cards =-1;
+    d.current_nb_cards = -1;
 }
 
 void delete_deck(Deck &d)

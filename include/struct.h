@@ -9,8 +9,8 @@ typedef char *Item;
 
 typedef struct Card
 {
-    int Value;
     char Name;
+    int Value;
     int quantity;
 }Card;
 
